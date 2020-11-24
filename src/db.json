@@ -1,0 +1,52 @@
+{
+    "discografia": [
+        {
+            "id": 1,
+            "banda": "The Rolling Stones",
+            "album": "The Rolling Stones (RU)",
+            "anio": 1964,
+            "precio": 65000,
+            "caratula": "https://github.com/jmmolinar/React/blob/main/images/TheRollingStones1.jpg"
+        },
+        {
+            "id": 2,
+            "banda": "The Rolling Stones",
+            "album": "England's Newest Hit Makers (EUA)",
+            "anio": 1964,
+            "precio": 45000,
+            "caratula": "https://github.com/jmmolinar/React/blob/main/images/TheRollingStones2.jpg"
+        },
+        {
+            "id": 3,
+            "banda": "Pink Floyd",
+            "album": "The Piper at the Gates of Dawn",
+            "anio": 1967,
+            "precio": 45000,
+            "caratula": "https://github.com/jmmolinar/React/blob/main/images/PinkFloyd1.jpg"
+        },
+        {
+            "id": 4,
+            "banda": "Pink Floyd",
+            "album": "A Saucerful of Secrets",
+            "anio": 1968,
+            "precio": 55000,
+            "caratula": "https://github.com/jmmolinar/React/blob/main/images/PinkFloyd2.jpg"
+        },
+        {
+            "id": 5,
+            "banda": "Eric Clapton",
+            "album": "Five Live Yardbirds",
+            "anio": 1964,
+            "precio": 35000,
+            "caratula": "https://github.com/jmmolinar/React/blob/main/images/EricClapton1.jpg"
+        },
+        {
+            "id": 6,
+            "banda": "Eric Clapton",
+            "album": "For Your Love",
+            "anio": 1965,
+            "precio": 42000,
+            "caratula": "https://github.com/jmmolinar/React/blob/main/images/EricClapton2.jpg"
+        }
+    ]
+}
