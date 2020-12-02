@@ -55,6 +55,7 @@ const ItemDetailContainer = () => {
 
                     setCargando(false)
 
+
                 });
         }, 3000);
         return () => { };
@@ -62,12 +63,10 @@ const ItemDetailContainer = () => {
 
 
     return <>
-        <div>
-            {/* <h1>Producto: {producto.id}</h1> */}
-        </div>
         <div className="App">
             {cargando ? <h1>Loading...</h1>
-                : <ItemDetail elementosAtributo6A={producto} />
+                : 
+                <ItemDetail elementosAtributo6A={producto} />
             }
         </div>
     </>

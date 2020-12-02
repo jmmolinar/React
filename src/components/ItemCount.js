@@ -14,31 +14,31 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import CartIcon from './CartIcon';
+import { Link } from 'react-router-dom'
 
 const ItemCount = ({ initial, min, max, onAdd }) => {
     const [contador, setContador] = useState(initial);
 
-    //
-    useEffect(() => {
-        //Se va a mostrar el valor
-        console.log("Valor inicial del contador: " + contador);
-        //document.getElementById('botonSumar').addEventListener("click", sumarContador);
+    // const valorQueVieneDeApp = useContext(MiContexto)
 
-        return () => {
-            //console.log("Murió");
-            // Nos desconectamos de cosas que no vamos a usar
-            //document.getElementById('botonSumar').removeEventListener("click", sumarContador)
-        }
 
-    }, []);
+    // //
+    // useEffect(() => {
+    //     //Se va a mostrar el valor
+    //     console.log("Valor inicial del contador: " + contador);
+
+    //     return () => {
+    //     }
+
+    // }, []);
 
 
     //Se ejecuta con el botón + 
     const sumarContador = () => {
         if (contador < max) {
             setContador(contador + 1);
-        } else {
-            setContador(contador);
+            onAdd(contador + 1);
         }
     }
 
@@ -46,16 +46,24 @@ const ItemCount = ({ initial, min, max, onAdd }) => {
     const restarContador = () => {
         if (contador > min) {
             setContador(contador - 1);
-        } else {
-            setContador(contador);
-        }
+            onAdd(contador - 1);
+        } 
     }
+
+  
 
     //Tomo el valor del onAdd pasado y como es la función AgregarAlCarrito que recibe
     //parámetros, entonces le paso como atributo el contador
-    const tomarContador = () => {
-        onAdd(contador)
-    }
+    // const tomarContador = () => {
+    //     onAdd(contador)
+    // }
+
+
+    // const asignarCompra = () => { 
+    //     valorQueVieneDeApp.asignarSetCantidad(contador)
+    //     valorQueVieneDeApp.asignarSetElegido(elegido) 
+    // }
+
 
     // //Al clickear AGREGAR AL CARRITO emito un alert
     // const agregarAlCarrito = () => {
@@ -83,7 +91,7 @@ const ItemCount = ({ initial, min, max, onAdd }) => {
         </div>
         <div>
             {/* Agrego el botón COMPRAR para el Desafio 6 de la Clase 7 */}
-            <Button onClick={tomarContador}>Agregar al carrito</Button> <Button id="comprar">Comprar {contador}</Button>
+            {/* <Button onClick={tomarContador}>Agregar al carrito</Button> <Button id="comprar" href={'/carrito'} onClick={asignarCompra}>Comprar {contador}</Button> */}
         </div>
     </>
 
