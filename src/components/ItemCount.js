@@ -20,8 +20,6 @@ import { Link } from 'react-router-dom'
 const ItemCount = ({ initial, min, max, onAdd }) => {
     const [contador, setContador] = useState(initial);
 
-    // const valorQueVieneDeApp = useContext(MiContexto)
-
 
     // //
     // useEffect(() => {

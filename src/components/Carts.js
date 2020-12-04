@@ -7,27 +7,32 @@
 */
 
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import useCartContext from '../context/useCartContext';
 
 const Carts = () => {
-    const { dummyArrayObject, handleDummyArrayObject} = useCartContext()
+    const { producto, cantidadProd } = useCartContext()
 
     console.log("Productos en el carrito: ")
-    console.log(dummyArrayObject);
-    console.log("Productos agregados (pero no la cantidad) cada vez que presiono Agregar al carrito: ")
-    console.log(dummyArrayObject.length);
-
-    // const handleValueObject = () => {
-    //     handleDummyArrayObject([])
-    // }
+    console.log(producto);
+    console.log("Cantidad de productos agregados con Agregar al carrito: ")
+    console.log(cantidadProd);
 
     return (<>
         <div className="footer">
-            <h1>MIS PRODUCTOS ARRAY OBJECT</h1>
+            <div></div>
+            <h1>Carrito de compras</h1>
+            <div></div>
             <div>
-                {dummyArrayObject.map((entry) => (
-                    <h2>Producto: {entry.id} - Album {entry.album} - Cantidad: </h2>
+                {producto.map((entry) => (
+                    <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {cantidadProd}</div>
                 ))}
+            </div>
+            <div>
+                <hr/>
+            </div>
+            <div>
+                <Button id="comprar">Comprar</Button>
             </div>
         </div>
     </>

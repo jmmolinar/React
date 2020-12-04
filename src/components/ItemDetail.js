@@ -16,19 +16,16 @@ const ItemDetail = ({ elementosAtributo6A }) => {
     const [cantidad, setCantidad] = useState(1);
     const ctx = useCartContext()
 
-    const { dummyArrayObject, handleDummyArrayObject } = useCartContext()
+    const { dummyArrayObject, handleDummyArrayObject, producto, asignarProducto, cantidadProd } = useCartContext()
 
     //Verificando que traiga el objeto completo
-    console.log("Aqui viene el arreglo de objetos")
-    console.log(dummyArrayObject);
+    console.log("Aqui viene el arreglo de productos")
+    console.log(producto);
 
-    const handleValueObject = () => {
-        handleDummyArrayObject({ elementosAtributo6A })
+    const agregarAlCarrito = () => {
+        //handleDummyArrayObject({ elementosAtributo6A })
+        asignarProducto(elementosAtributo6A, cantidad)
     }
-
-    // const agregarAlCarrito = () => {
-    //     //valorQueVieneDeApp.asignarProducto(elementosAtributo6A, cantidad)
-    // }
 
     const setearCantidad = (cantidad) => {
         setCantidad(cantidad)
@@ -62,15 +59,17 @@ const ItemDetail = ({ elementosAtributo6A }) => {
         </div> */}
         <div>
             {/* <Button onClick={agregarAlCarrito}>Agregar al carrito {cantidad}</Button> <Button id="comprar" href={'/carrito'}>Comprar {cantidad}</Button> */}
-            <Button onClick={handleValueObject}>Agregar al carrito {cantidad}</Button>
+            <Button onClick={agregarAlCarrito}>Agregar al carrito - {cantidad} -</Button>
         </div>
 
         <div className="footer">
-            <h1>DUMMY ARRAY OBJECT</h1>
+            <div></div>
+            <h4>Aparecerán en el carrito: </h4>
+            <div></div>
             <div>
-                {dummyArrayObject.map((entry) => (
+                {producto.map((entry) => (
                     <div key={entry.id}>
-                        <h2>Producto: {entry.id} - Album {entry.album}</h2>
+                        <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {cantidad}</div>
                     </div>
                 ))}
             </div>
