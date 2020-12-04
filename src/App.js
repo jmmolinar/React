@@ -8,8 +8,10 @@
 
     Al hacer clic en AGREGAR AL CARRITO de un producto seleccionado, se actualiza la cantidad en Icon Cart por context
     Al navegar a Cart, se muestran los productos agregados
-    La cantidad incrementada o decrementada, también se va al Carrito por context
-    El arreglo de productos se va al carrito por context
+    La cantidad incrementada o decrementada, para cada producto agregado también se va al Carrito por context
+    El arreglo de productos se va al carrito y cada producto tiene la nueva propiedad cantidad (sumada o decrementada)
+    Al navegar por cualquier parte de la app se mantiene el arreglo con los productos agregados :)
+    Me falta optimizar el IconCart para que muestre la sumatoria de todas las cantidades y no el ultimo valor que se sumo o resto
 
 */
 

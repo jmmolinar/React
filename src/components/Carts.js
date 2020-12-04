@@ -25,7 +25,7 @@ const Carts = () => {
             <div></div>
             <div>
                 {producto.map((entry) => (
-                    <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {cantidadProd}</div>
+                    <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {entry.cantidad}</div>
                 ))}
             </div>
             <div>

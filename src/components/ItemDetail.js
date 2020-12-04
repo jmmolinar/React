@@ -69,7 +69,7 @@ const ItemDetail = ({ elementosAtributo6A }) => {
             <div>
                 {producto.map((entry) => (
                     <div key={entry.id}>
-                        <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {cantidad}</div>
+                        <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {entry.cantidad}</div>
                     </div>
                 ))}
             </div>

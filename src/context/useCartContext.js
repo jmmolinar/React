@@ -40,7 +40,7 @@ export const AppProvider = ({ children }) => {
         // itemCollection.get().then((response) => {
         //solo con el filtro
         filtrarPorStock.get().then((response) => {
-            
+
             console.log(response)
             const aux = response.docs.map(element => {
                 console.log(element.data());
@@ -53,10 +53,14 @@ export const AppProvider = ({ children }) => {
     }, [])
     // *************************************** //
 
-    const asignarProducto = (newValue, newCantidad) => {
+    const asignarProducto = (nuevoProducto, nuevaCantidad) => {
         //setDummyArrayObject((prevProducto) => [...prevProducto, newValue])
-        setCantidadProd(newCantidad)
-        setProducto([...producto, newValue])
+        //Agrego una nueva propiedad al producto
+        // if (nuevoProducto !== producto) {
+        nuevoProducto.cantidad = nuevaCantidad;
+        setCantidadProd(nuevaCantidad)
+        setProducto([...producto, nuevoProducto])
+        // }
     }
 
     return <AppContext.Provider value={{ producto, asignarProducto, cantidadProd }}>

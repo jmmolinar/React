@@ -27,14 +27,18 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
 
-                        <Nav.Item><Nav.Link href="/" className="colorTextNav">Inicio</Nav.Link></Nav.Item>
+                        {/* <Nav.Item><Nav.Link href="/" className="colorTextNav">Inicio</Nav.Link></Nav.Item> */}
                         {/* <Nav.Item><Nav.Link href="#generos" className="colorTextNav"><Link to={'/productos'}>Géneros</Link></Nav.Link></Nav.Item> */}
-                        <Nav.Item><Nav.Link href="/productos" className="colorTextNav">Productos</Nav.Link></Nav.Item>
+                        {/* <Nav.Item><Nav.Link href="/productos" className="colorTextNav">Productos</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link className="colorTextNav">Socios</Nav.Link></Nav.Item>
-                        <Nav.Item><Nav.Link className="colorTextNav">Contacto</Nav.Link></Nav.Item>
+                        <Nav.Item><Nav.Link className="colorTextNav">Contacto</Nav.Link></Nav.Item> */}
 
                         {/* Agrego a la navegación el ícono del Carrito Lo obtengo desde mi CartIcon.js */}
 
+                        <Nav.Item><Nav.Link><Link to="/" className="colorTextNav">Inicio</Link></Nav.Link></Nav.Item>
+                        <Nav.Item><Nav.Link><Link to="/productos" className="colorTextNav">Productos</Link></Nav.Link></Nav.Item>
+                        <Nav.Item><Nav.Link><Link to="/#" className="colorTextNav">Socios</Link></Nav.Link></Nav.Item>
+                        <Nav.Item><Nav.Link><Link to="/#" className="colorTextNav">Contacto</Link></Nav.Link></Nav.Item>
                         <Link to={'/carrito'}><CartIcon /></Link>
 
                 </Navbar.Collapse>
