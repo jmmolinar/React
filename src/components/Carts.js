@@ -11,12 +11,14 @@ import Button from 'react-bootstrap/Button';
 import useCartContext from '../context/useCartContext';
 
 const Carts = () => {
-    const { producto, cantidadProd } = useCartContext()
+    const { producto, cantidadProd, totalCantidadesIcon } = useCartContext()
 
     console.log("Productos en el carrito: ")
     console.log(producto);
-    console.log("Cantidad de productos agregados con Agregar al carrito: ")
+    console.log("Cantidad con Agregar al carrito para un producto específico: ")
     console.log(cantidadProd);
+    console.log("Sumatoria de las cantidades de todos los productos agregados: ")
+    console.log(totalCantidadesIcon);
 
     return (<>
         <div className="footer">

@@ -17,6 +17,8 @@ export const AppProvider = ({ children }) => {
 
     const [producto, setProducto] = useState([])
     const [cantidadProd, setCantidadProd] = useState(0)
+    const [cantidadesIcon, setCantidadesIcon] = useState([])
+    const [totalCantidadesIcon, setTotalCantidadesIcon] = useState(0)
 
     // const [carr, setCart] = useState([])
     // const agregarProducto = (prod, cant) => {algo}
@@ -60,10 +62,23 @@ export const AppProvider = ({ children }) => {
         nuevoProducto.cantidad = nuevaCantidad;
         setCantidadProd(nuevaCantidad)
         setProducto([...producto, nuevoProducto])
+        setCantidadesIcon([...cantidadesIcon, nuevaCantidad])
+
+        //var suma = parseInt(nuevaCantidad);
+        setTotalCantidadesIcon(totalCantidadesIcon + nuevaCantidad)
+
+        // var numero;
+        // for (var i = 0; i < cantidadesIcon.length; i++) {
+        //     numero = cantidadesIcon[i];
+        //     suma = suma + numero;
+        // }
+        // console.log("Arreglo de cantidades")
+        // console.log(cantidadesIcon)
+        // setTotalCantidadesIcon(suma)
         // }
     }
 
-    return <AppContext.Provider value={{ producto, asignarProducto, cantidadProd }}>
+    return <AppContext.Provider value={{ producto, asignarProducto, cantidadProd, cantidadesIcon, totalCantidadesIcon }}>
         {children}
 
         {/* Para firebase */}

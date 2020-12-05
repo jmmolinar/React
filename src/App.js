@@ -11,7 +11,8 @@
     La cantidad incrementada o decrementada, para cada producto agregado también se va al Carrito por context
     El arreglo de productos se va al carrito y cada producto tiene la nueva propiedad cantidad (sumada o decrementada)
     Al navegar por cualquier parte de la app se mantiene el arreglo con los productos agregados :)
-    Me falta optimizar el IconCart para que muestre la sumatoria de todas las cantidades y no el ultimo valor que se sumo o resto
+    Optimizado las cantidades en Icon Cart
+    Desafío completado por fin.
 
 */
 

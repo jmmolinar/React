@@ -12,15 +12,13 @@ import useCartContext from '../context/useCartContext';
 
 const CartIcon = () => {
 
-    const { producto, cantidadProd } = useCartContext()
+    const { totalCantidadesIcon } = useCartContext()
 
     return (<>
 
         {/* // Agrego el icono de carrito de compras
         // previamente importado desde Bootstrap */}
-
-        {/* <Icon.Cart color="royalblue" size={45} /><p>{producto.length}</p> */}
-        <Icon.Cart color="royalblue" size={45} /><p>{cantidadProd}</p>
+        <Icon.Cart color="royalblue" size={45} /><p>{totalCantidadesIcon}</p>
     </>
     )
 }

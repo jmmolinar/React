@@ -9,6 +9,7 @@
 import ItemCount from '../components/ItemCount';
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
 import useCartContext from '../context/useCartContext';
 
 const ItemDetail = ({ elementosAtributo6A }) => {
@@ -16,7 +17,7 @@ const ItemDetail = ({ elementosAtributo6A }) => {
     const [cantidad, setCantidad] = useState(1);
     const ctx = useCartContext()
 
-    const { dummyArrayObject, handleDummyArrayObject, producto, asignarProducto, cantidadProd } = useCartContext()
+    const { producto, asignarProducto, cantidadProd } = useCartContext()
 
     //Verificando que traiga el objeto completo
     console.log("Aqui viene el arreglo de productos")
@@ -59,10 +60,11 @@ const ItemDetail = ({ elementosAtributo6A }) => {
         </div> */}
         <div>
             {/* <Button onClick={agregarAlCarrito}>Agregar al carrito {cantidad}</Button> <Button id="comprar" href={'/carrito'}>Comprar {cantidad}</Button> */}
-            <Button onClick={agregarAlCarrito}>Agregar al carrito - {cantidad} -</Button>
+            <Button id="agregar" onClick={agregarAlCarrito}>Agregar al carrito {cantidad}</Button> <Link to={'/carrito'}><Button id="comprar" onClick={agregarAlCarrito}>Comprar {cantidad}</Button></Link>
+        
         </div>
 
-        <div className="footer">
+        {/* <div className="footer">
             <div></div>
             <h4>Aparecerán en el carrito: </h4>
             <div></div>
@@ -74,7 +76,7 @@ const ItemDetail = ({ elementosAtributo6A }) => {
                 ))}
             </div>
             <hr />
-        </div>
+        </div> */}
 
     </>
     )
