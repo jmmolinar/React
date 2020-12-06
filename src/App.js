@@ -7,6 +7,7 @@
     PRINCIPALES COMPONENTES DEL DESAFIO: Carts.js
 
     En Carts.js agrego un componente llamado Agrupados que recibe la cantidad de productos en el carrito
+    Se lo paso tomandolo del context a totalCantidadesIcon
     Si la cantidad es mayor a cero, muestra los productos agregado
     Si no lo es renderiza un mensaje "No tienes productos agregados" y agrega Link to para ir a Productos
 
