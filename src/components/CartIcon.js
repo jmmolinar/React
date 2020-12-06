@@ -2,7 +2,7 @@
 
     CURSO: React
     Desafio N° 9 context
-    Estudiante: José Miguel Molina Rondón 
+    Estudiante: José Miguel Molina Rondón
 
 */
 

@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom'
 import useCartContext from '../context/useCartContext';
 
-const ItemDetail = ({ elementosAtributo6A }) => {
+const ItemDetail = ({ productoSeleccionado }) => {
 
     const [cantidad, setCantidad] = useState(1);
     const ctx = useCartContext()
@@ -24,32 +24,30 @@ const ItemDetail = ({ elementosAtributo6A }) => {
     console.log(producto);
 
     const agregarAlCarrito = () => {
-        //handleDummyArrayObject({ elementosAtributo6A })
-        asignarProducto(elementosAtributo6A, cantidad)
+        asignarProducto(productoSeleccionado, cantidad)
     }
 
     const setearCantidad = (cantidad) => {
         setCantidad(cantidad)
     }
 
-    if (!elementosAtributo6A) {
+    if (!productoSeleccionado) {
         return <p>Ya viene el producto...</p>;
     }
     return (<>
         <div>
             <div>
-                <h1>Producto: {elementosAtributo6A.id}</h1>
-                <img src={elementosAtributo6A.caratula} alt={elementosAtributo6A.banda} />
-                <div><strong>Album: </strong>{elementosAtributo6A.album}</div>
-                <div><strong>Valor: ${elementosAtributo6A.precio}</strong></div>
+                <h1>Producto: {productoSeleccionado.id}</h1>
+                <img src={productoSeleccionado.caratula} alt={productoSeleccionado.banda} />
+                <div><strong>Album: </strong>{productoSeleccionado.album}</div>
+                <div><strong>Valor: ${productoSeleccionado.precio}</strong></div>
                 <div></div>
-                <div><strong>Detalle: </strong>{elementosAtributo6A.detalle}</div>
+                <div><strong>Detalle: </strong>{productoSeleccionado.detalle}</div>
                 <div></div>
             </div>
 
         </div>
 
-        {/* Agrego el carrito al ItemDetail */}
         <div>
             <ItemCount initial={1} min="1" max="15" onAdd={setearCantidad}></ItemCount>
         </div>
@@ -59,26 +57,25 @@ const ItemDetail = ({ elementosAtributo6A }) => {
             <hr />
         </div> */}
         <div>
-            {/* <Button onClick={agregarAlCarrito}>Agregar al carrito {cantidad}</Button> <Button id="comprar" href={'/carrito'}>Comprar {cantidad}</Button> */}
             <Button id="agregar" onClick={agregarAlCarrito}>Agregar al carrito {cantidad}</Button> <Link to={'/carrito'}><Button id="comprar" onClick={agregarAlCarrito}>Comprar {cantidad}</Button></Link>
-        
-        </div>
 
-        {/* <div className="footer">
-            <div></div>
-            <h4>Aparecerán en el carrito: </h4>
-            <div></div>
-            <div>
-                {producto.map((entry) => (
-                    <div key={entry.id}>
-                        <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {entry.cantidad}</div>
-                    </div>
-                ))}
-            </div>
-            <hr />
-        </div> */}
+        </div>
 
     </>
     )
 }
 export default ItemDetail;
+
+{/* <div className="footer">
+    <div></div>
+    <h4>Aparecerán en el carrito: </h4>
+    <div></div>
+    <div>
+        {producto.map((entry) => (
+            <div key={entry.id}>
+                <div><strong>Producto: </strong> {entry.id} - <strong>Album: </strong> {entry.album} - <strong>Cantidad: </strong> {entry.cantidad}</div>
+            </div>
+        ))}
+    </div>
+    <hr />
+</div> */}

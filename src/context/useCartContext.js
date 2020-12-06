@@ -37,11 +37,12 @@ export const AppProvider = ({ children }) => {
         const itemCollection = db.collection("productos");
         //PARA UN PRODUCTO agrego el identificador del producto
         //const idItem = itemCollection.doc("yXQ08Nh1hg8SzyInwUa9")
-        const filtrarPorStock = itemCollection.where("stock", "<", 30)
+        //const filtrarPorStock = itemCollection.where("stock", "<", 30)
         //completo
         // itemCollection.get().then((response) => {
         //solo con el filtro
-        filtrarPorStock.get().then((response) => {
+        //filtrarPorStock.get().then((response) => {
+        itemCollection.get().then((response) => {
 
             console.log(response)
             const aux = response.docs.map(element => {
@@ -55,27 +56,18 @@ export const AppProvider = ({ children }) => {
     }, [])
     // *************************************** //
 
+    // const eliminarProducto = () => {
+    // }
+
     const asignarProducto = (nuevoProducto, nuevaCantidad) => {
-        //setDummyArrayObject((prevProducto) => [...prevProducto, newValue])
-        //Agrego una nueva propiedad al producto
-        // if (nuevoProducto !== producto) {
         nuevoProducto.cantidad = nuevaCantidad;
         setCantidadProd(nuevaCantidad)
         setProducto([...producto, nuevoProducto])
         setCantidadesIcon([...cantidadesIcon, nuevaCantidad])
-
         //var suma = parseInt(nuevaCantidad);
         setTotalCantidadesIcon(totalCantidadesIcon + nuevaCantidad)
 
-        // var numero;
-        // for (var i = 0; i < cantidadesIcon.length; i++) {
-        //     numero = cantidadesIcon[i];
-        //     suma = suma + numero;
-        // }
-        // console.log("Arreglo de cantidades")
-        // console.log(cantidadesIcon)
-        // setTotalCantidadesIcon(suma)
-        // }
+
     }
 
     return <AppContext.Provider value={{ producto, asignarProducto, cantidadProd, cantidadesIcon, totalCantidadesIcon }}>
@@ -100,3 +92,11 @@ export const AppProvider = ({ children }) => {
 export default useCartContext;
 
 
+// var numero;
+// for (var i = 0; i < cantidadesIcon.length; i++) {
+//     numero = cantidadesIcon[i];
+//     suma = suma + numero;
+// }
+// console.log("Arreglo de cantidades")
+// console.log(cantidadesIcon)
+// setTotalCantidadesIcon(suma)

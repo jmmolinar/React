@@ -34,24 +34,8 @@ const ItemDetailContainer = () => {
                     console.log("Response del 2do then: " + response)
                     console.log("Este es el query: " + productoId);
 
-                    // SOLUCIÓN 1: SELECCIÓN DEL PRODUCTO CON FILTER
-                    //setProducto(response.filter(p => p.id == productoId)[0])
-                    //filter devuelve un array por eso necesitas el[0]
-
-
                     // SOLUCIÓN 2: SELECCIÓN DEL PRODUCTO CON FIND
                     setProducto(response.find((p) => p.id == productoId))
-
-
-                    // SOLUCIÓN 3: RECORRO EL ARREGLO CON FOR Y COMPARO CON IF
-                    //TUVE QUE HACER PARSEINT PARA QUE ME TOMARA EL productId del useParams
-                    // for (var i = 0; i < response.length; i++) {
-                    //     if (response[i].id === parseInt(productoId)) {
-                    //         setProducto(response[i])
-                    //         console.log("Mi resultado: " + response[i]);
-                    //     }
-
-                    // }
 
                     setCargando(false)
 
@@ -65,11 +49,32 @@ const ItemDetailContainer = () => {
     return <>
         <div className="App">
             {cargando ? <h1>Loading...</h1>
-                : 
-                <ItemDetail elementosAtributo6A={producto} />
+                :
+                <ItemDetail productoSeleccionado={producto} />
             }
         </div>
     </>
 }
 
 export default ItemDetailContainer;
+
+
+
+// SOLUCIÓN 1: SELECCIÓN DEL PRODUCTO CON FILTER
+// setProducto(response.filter(p => p.id == productoId)[0])
+// filter devuelve un array por eso necesitas el[0]
+
+
+// SOLUCIÓN 2: SELECCIÓN DEL PRODUCTO CON FIND
+// setProducto(response.find((p) => p.id == productoId))
+
+
+// SOLUCIÓN 3: RECORRO EL ARREGLO CON FOR Y COMPARO CON IF
+// TUVE QUE HACER PARSEINT PARA QUE ME TOMARA EL productId del useParams
+// for (var i = 0; i < response.length; i++) {
+//     if (response[i].id === parseInt(productoId)) {
+//         setProducto(response[i])
+//         console.log("Mi resultado: " + response[i]);
+//     }
+
+// }
