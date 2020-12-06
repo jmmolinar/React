@@ -5,6 +5,7 @@
     Estudiante: José Miguel Molina Rondón
 
     Se agrega componente Agrupados que toma la cantidad de productos en carrito para saber si renderiza el listado o un mensaje
+    Y se agrega Botón con Link To para ir a productos
 
 */
 
