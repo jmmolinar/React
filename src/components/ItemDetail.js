@@ -17,11 +17,11 @@ const ItemDetail = ({ productoSeleccionado }) => {
     const [cantidad, setCantidad] = useState(1);
     const ctx = useCartContext()
 
-    const { producto, asignarProducto, cantidadProd } = useCartContext()
+    const { productosCarrito, asignarProducto, cantidadProd } = useCartContext()
 
     //Verificando que traiga el objeto completo
     console.log("Aqui viene el arreglo de productos")
-    console.log(producto);
+    console.log(productosCarrito);
 
     const agregarAlCarrito = () => {
         asignarProducto(productoSeleccionado, cantidad)
@@ -51,11 +51,6 @@ const ItemDetail = ({ productoSeleccionado }) => {
         <div>
             <ItemCount initial={1} min="1" max="15" onAdd={setearCantidad}></ItemCount>
         </div>
-        {/* <div>
-            <h2>{ctx.dummyText}</h2>
-            <button onClick={() => { ctx.handleDummyText("José Miguel Molina") }}>newValue</button>
-            <hr />
-        </div> */}
         <div>
             <Button id="agregar" onClick={agregarAlCarrito}>Agregar al carrito {cantidad}</Button> <Link to={'/carrito'}><Button id="comprar" onClick={agregarAlCarrito}>Comprar {cantidad}</Button></Link>
 

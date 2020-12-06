@@ -15,7 +15,7 @@ const useCartContext = () => useContext(AppContext)
 
 export const AppProvider = ({ children }) => {
 
-    const [producto, setProducto] = useState([])
+    const [productosCarrito, setProductosCarrito] = useState([])
     const [cantidadProd, setCantidadProd] = useState(0)
     const [cantidadesIcon, setCantidadesIcon] = useState([])
     const [totalCantidadesIcon, setTotalCantidadesIcon] = useState(0)
@@ -56,13 +56,18 @@ export const AppProvider = ({ children }) => {
     }, [])
     // *************************************** //
 
-    // const eliminarProducto = () => {
-    // }
+    const eliminarProducto = (id, cantidad) => {
+        productosCarrito.splice(
+            productosCarrito.findIndex((p) => p.id === id), 1
+        )
+        setProductosCarrito([...productosCarrito])
+        setTotalCantidadesIcon(totalCantidadesIcon - cantidad)
+    }
 
     const asignarProducto = (nuevoProducto, nuevaCantidad) => {
         nuevoProducto.cantidad = nuevaCantidad;
         setCantidadProd(nuevaCantidad)
-        setProducto([...producto, nuevoProducto])
+        setProductosCarrito([...productosCarrito, nuevoProducto])
         setCantidadesIcon([...cantidadesIcon, nuevaCantidad])
         //var suma = parseInt(nuevaCantidad);
         setTotalCantidadesIcon(totalCantidadesIcon + nuevaCantidad)
@@ -70,7 +75,7 @@ export const AppProvider = ({ children }) => {
 
     }
 
-    return <AppContext.Provider value={{ producto, asignarProducto, cantidadProd, cantidadesIcon, totalCantidadesIcon }}>
+    return <AppContext.Provider value={{ productosCarrito, asignarProducto, eliminarProducto, cantidadProd, cantidadesIcon, totalCantidadesIcon }}>
         {children}
 
         {/* Para firebase */}

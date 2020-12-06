@@ -12,17 +12,22 @@
 
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom'
 import useCartContext from '../context/useCartContext';
 
 const Carts = () => {
 
-    const { producto, cantidadProd, totalCantidadesIcon } = useCartContext()
+    const { productosCarrito, cantidadProd, totalCantidadesIcon, eliminarProducto } = useCartContext()
     console.log("Cantidades iniciando la app: ")
     console.log(totalCantidadesIcon);
 
     //Componente condicional para diferencia si hay o no productos en el carrito
     const Agrupados = ({ sumaProductosEnCarrito }) => {
+
+        const eliminarDelCarrito = (p) => {
+            eliminarProducto(p.id, p.cantidad)
+        }
 
         if (sumaProductosEnCarrito > 0) {
             return (<>
@@ -31,13 +36,29 @@ const Carts = () => {
                     <h1>Carrito de compras</h1>
                     <div></div>
                     <div>
-                        {producto.map((entry, index) => (
-                            <div key={index}>
-                                <strong>Producto: </strong> {entry.id} -
-                                <strong>Album: </strong> {entry.album} -
-                                <strong>Cantidad: </strong> {entry.cantidad}
-                            </div>
-                        ))}
+                        <Table striped bordered hover responsive="sm">
+                            <thead>
+                                <tr>
+                                    <th>Album</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            {productosCarrito.map((entry) => (
+                                // <div key={index}>
+                                <tbody>
+                                    <tr>
+                                        <td>{entry.album}</td>
+                                        <td>$ {entry.precio}</td>
+                                        <td>{entry.cantidad}</td>
+                                        <td>{entry.precio * entry.cantidad}</td>
+                                        <td><Button variant="danger"id="eliminar" onClick={() => eliminarDelCarrito(entry)}>Eliminar</Button></td>
+                                    </tr>
+                                </tbody>
+                            ))}
+                        </Table>
                     </div>
                     <div>
                         <hr />
@@ -66,7 +87,7 @@ const Carts = () => {
     }
 
     console.log("Productos en el carrito: ")
-    console.log(producto);
+    console.log(productosCarrito);
     console.log("Cantidad con Agregar al carrito para un producto específico: ")
     console.log(cantidadProd);
     console.log("Sumatoria de las cantidades de todos los productos agregados: ")
@@ -107,3 +128,9 @@ export default Carts;
 //     </div>
 // </>
 // )
+
+{/* <td><strong>Producto: </strong> {entry.id}</td>
+<td><strong>Album: </strong> {entry.album}</td>
+<td><strong>Precio: </strong> $ {entry.precio}</td>
+<td><strong>Cantidad: </strong> {entry.cantidad}</td>
+<td><strong>Subtotal: </strong> {entry.precio * entry.cantidad}</td> */}
