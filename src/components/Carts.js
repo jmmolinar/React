@@ -23,13 +23,13 @@ const Carts = () => {
     console.log(sumarCantidadesAlCarrito());
 
     //Componente condicional para diferencia si hay o no productos en el carrito
-    const Agrupados = ({ sumaDeProductosEnCarrito }) => {
+    const Agrupados = ({ totalDeProductosEnCarrito }) => {
 
         const eliminarDelCarrito = (p) => {
             eliminarProducto(p.id, p.cantidad)
         }
 
-        if (sumaDeProductosEnCarrito > 0) {
+        if (totalDeProductosEnCarrito > 0) {
             return (<>
                 <div className="footer">
                     <div></div>
@@ -94,7 +94,7 @@ const Carts = () => {
     return (<>
         <div className="App">
             {/* Le paso la cantidad de productos que están en el carrito */}
-            <Agrupados sumaDeProductosEnCarrito={sumarCantidadesAlCarrito()} />
+            <Agrupados totalDeProductosEnCarrito={sumarCantidadesAlCarrito()} />
         </div>
     </>
     )

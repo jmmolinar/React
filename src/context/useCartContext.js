@@ -15,7 +15,6 @@ const useCartContext = () => useContext(AppContext)
 export const AppProvider = ({ children }) => {
 
     const [productosCarrito, setProductosCarrito] = useState([])
-    // const [totalCantidadesIcon, setTotalCantidadesIcon] = useState(0)
 
     // useEffect(() => {
     //     return () => { }

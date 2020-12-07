@@ -4,6 +4,8 @@
     Desafio N° 9 context
     Estudiante: José Miguel Molina Rondón
 
+    Muestro la cantidad tomando del context a sumarCantidadesAlCarrito
+
 */
 
 import React from 'react';
@@ -12,7 +14,7 @@ import useCartContext from '../context/useCartContext';
 
 const CartIcon = () => {
 
-    const { totalCantidadesIcon, sumarCantidadesAlCarrito } = useCartContext()
+    const { sumarCantidadesAlCarrito } = useCartContext()
 
     return (<>
 
