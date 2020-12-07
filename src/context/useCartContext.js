@@ -10,18 +10,12 @@ import React, { useEffect, useContext, useState } from 'react';
 import { getFirestore } from '../firebase';
 
 const AppContext = React.createContext();
-
 const useCartContext = () => useContext(AppContext)
 
 export const AppProvider = ({ children }) => {
 
     const [productosCarrito, setProductosCarrito] = useState([])
-    const [cantidadProd, setCantidadProd] = useState(0)
-    const [cantidadesIcon, setCantidadesIcon] = useState([])
-    const [totalCantidadesIcon, setTotalCantidadesIcon] = useState(0)
-
-    // const [carr, setCart] = useState([])
-    // const agregarProducto = (prod, cant) => {algo}
+    // const [totalCantidadesIcon, setTotalCantidadesIcon] = useState(0)
 
     // useEffect(() => {
     //     return () => { }
@@ -61,21 +55,35 @@ export const AppProvider = ({ children }) => {
             productosCarrito.findIndex((p) => p.id === id), 1
         )
         setProductosCarrito([...productosCarrito])
-        setTotalCantidadesIcon(totalCantidadesIcon - cantidad)
     }
 
     const asignarProducto = (nuevoProducto, nuevaCantidad) => {
-        nuevoProducto.cantidad = nuevaCantidad;
-        setCantidadProd(nuevaCantidad)
-        setProductosCarrito([...productosCarrito, nuevoProducto])
-        setCantidadesIcon([...cantidadesIcon, nuevaCantidad])
-        //var suma = parseInt(nuevaCantidad);
-        setTotalCantidadesIcon(totalCantidadesIcon + nuevaCantidad)
+        const existeProducto = productosCarrito.find((p) => p.id === nuevoProducto.id)
+        console.log(existeProducto);
 
+
+        if (existeProducto) {
+            existeProducto.cantidad += nuevaCantidad;
+            setProductosCarrito([...productosCarrito])
+
+        } else {
+            nuevoProducto.cantidad = nuevaCantidad;
+            setProductosCarrito([...productosCarrito, nuevoProducto])
+
+        }
 
     }
 
-    return <AppContext.Provider value={{ productosCarrito, asignarProducto, eliminarProducto, cantidadProd, cantidadesIcon, totalCantidadesIcon }}>
+
+    const sumarCantidadesAlCarrito = () => {
+        return productosCarrito.reduce((acumulador, valorActual) => (
+            acumulador += valorActual.cantidad
+        ), 0)
+    }
+
+
+
+    return <AppContext.Provider value={{ productosCarrito, asignarProducto, eliminarProducto, sumarCantidadesAlCarrito}}>
         {children}
 
         {/* Para firebase */}

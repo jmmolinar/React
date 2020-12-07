@@ -5,7 +5,7 @@
     Estudiante: José Miguel Molina Rondón
 
     Se agrega componente Agrupados que toma la cantidad de productos en carrito para saber si renderiza el listado o un mensaje
-    Se lo paso tomándolo del context a totalCantidadesIcon
+    Se lo paso tomándolo del context a sumarCantidadesAlCarrito
     Y se agrega Botón con Link To para ir a productos
 
 */
@@ -18,18 +18,18 @@ import useCartContext from '../context/useCartContext';
 
 const Carts = () => {
 
-    const { productosCarrito, cantidadProd, totalCantidadesIcon, eliminarProducto } = useCartContext()
-    console.log("Cantidades iniciando la app: ")
-    console.log(totalCantidadesIcon);
+    const { productosCarrito, eliminarProducto, sumarCantidadesAlCarrito } = useCartContext()
+    console.log("Cantidades productos Cart.js: ")
+    console.log(sumarCantidadesAlCarrito());
 
     //Componente condicional para diferencia si hay o no productos en el carrito
-    const Agrupados = ({ sumaProductosEnCarrito }) => {
+    const Agrupados = ({ sumaDeProductosEnCarrito }) => {
 
         const eliminarDelCarrito = (p) => {
             eliminarProducto(p.id, p.cantidad)
         }
 
-        if (sumaProductosEnCarrito > 0) {
+        if (sumaDeProductosEnCarrito > 0) {
             return (<>
                 <div className="footer">
                     <div></div>
@@ -50,11 +50,11 @@ const Carts = () => {
                                 // <div key={index}>
                                 <tbody>
                                     <tr>
-                                        <td>{entry.album}</td>
+                                        <td><Link to={`/productos/${entry.id}`}>{entry.album}</Link></td>
                                         <td>$ {entry.precio}</td>
                                         <td>{entry.cantidad}</td>
                                         <td>{entry.precio * entry.cantidad}</td>
-                                        <td><Button variant="danger"id="eliminar" onClick={() => eliminarDelCarrito(entry)}>Eliminar</Button></td>
+                                        <td><Button variant="danger" id="eliminar" onClick={() => eliminarDelCarrito(entry)}>Eliminar</Button></td>
                                     </tr>
                                 </tbody>
                             ))}
@@ -88,15 +88,13 @@ const Carts = () => {
 
     console.log("Productos en el carrito: ")
     console.log(productosCarrito);
-    console.log("Cantidad con Agregar al carrito para un producto específico: ")
-    console.log(cantidadProd);
     console.log("Sumatoria de las cantidades de todos los productos agregados: ")
-    console.log(totalCantidadesIcon);
+    console.log(sumarCantidadesAlCarrito());
 
     return (<>
         <div className="App">
             {/* Le paso la cantidad de productos que están en el carrito */}
-            <Agrupados sumaProductosEnCarrito={totalCantidadesIcon} />
+            <Agrupados sumaDeProductosEnCarrito={sumarCantidadesAlCarrito()} />
         </div>
     </>
     )

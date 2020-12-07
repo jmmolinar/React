@@ -17,7 +17,7 @@ const ItemDetail = ({ productoSeleccionado }) => {
     const [cantidad, setCantidad] = useState(1);
     const ctx = useCartContext()
 
-    const { productosCarrito, asignarProducto, cantidadProd } = useCartContext()
+    const { productosCarrito, asignarProducto } = useCartContext()
 
     //Verificando que traiga el objeto completo
     console.log("Aqui viene el arreglo de productos")
