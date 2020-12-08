@@ -14,6 +14,7 @@
 
     DESAFIO 11 - FIREBASE Item Collection
     PRINCIPALES COMPONENTES DEL DESAFIO:
+    
     useCartContext.js - obtengo la colección de producto de Firebase
     ItemList.js - productos por context con productosFirebase
     ItemDetailContainer.js - filtro productosFirebase con el productoID de la URL
