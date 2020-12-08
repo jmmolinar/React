@@ -1,34 +1,36 @@
 /* 
 
     CURSO: React
-    Desafio N° 11 Clase 12 Firebase
+    Desafio N° 11 Clase 12 Firebase context
     Estudiante: José Miguel Molina Rondón
-
-    Traigo los productos por context con productosFirebase
 
 */
 
 import React, { useState, useEffect } from 'react';
-import Item from './Item'
+import Category from './Category'
 import useCartContext from '../context/useCartContext';
 //import './App.css';
 
-const ItemList = () => {
+const ItemListCategory = () => {
     const [cargando, setCargando] = useState(true);
-    const [productos, setProductos] = useState();
+    const [categorias, setCategorias] = useState();
 
-    const { productosFirebase } = useCartContext();
+    const { productosFirebase, arregloCategorias, agregarCategoriaArreglo } = useCartContext();
 
     //PEDIDO DE DATOS AL INICIAR EL COMPONENTE
     useEffect(() => {
-        getProductos();
+        
+        getCategorias();
         //return () => {console.log(getProductos())}
     }, []);
 
     //TRAYENDOME DEL CONTEXTO LOS DATOS DEL FIREBASE
-    const getProductos = () => {
+    const getCategorias = () => {
+        //agregarCategoriaArreglo(productosFirebase);
         setTimeout(() => {
-            setProductos(productosFirebase);
+            console.log("Arreglo desde CategoryList")
+            console.log(arregloCategorias)
+            setCategorias(arregloCategorias);
             setCargando(false);
         }, 2000);
         return () => { };
@@ -37,18 +39,16 @@ const ItemList = () => {
 
     return <>
         <div className="App">
-            <h1>Discografías</h1>
+            <h1>Categorías Discografías</h1>
 
-            {cargando ? <h3>Loading...</h3>
-                : <Item atributo={productos} />
+            {cargando ? <h3>Cargando...</h3>
+                : <Category atributoCategoria={categorias} />
             }
         </div>
     </>
 }
 
-export default ItemList;
-
-
+export default ItemListCategory;
 
 
 

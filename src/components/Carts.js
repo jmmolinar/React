@@ -26,8 +26,12 @@ const Carts = () => {
     const Agrupados = ({ totalDeProductosEnCarrito }) => {
 
         const eliminarDelCarrito = (p) => {
-            eliminarProducto(p.id, p.cantidad)
+            eliminarProducto(p.id)
         }
+
+        const tableStyle = {
+            fontSize: '14px'
+        };
 
         if (totalDeProductosEnCarrito > 0) {
             return (<>
@@ -39,6 +43,7 @@ const Carts = () => {
                         <Table striped bordered hover responsive="sm">
                             <thead>
                                 <tr>
+                                    <th>Banda</th>
                                     <th>Album</th>
                                     <th>Precio</th>
                                     <th>Cantidad</th>
@@ -48,12 +53,13 @@ const Carts = () => {
                             </thead>
                             {productosCarrito.map((entry) => (
                                 // <div key={index}>
-                                <tbody>
+                                <tbody style={tableStyle}>
                                     <tr>
+                                        <td>{entry.banda}</td>
                                         <td><Link to={`/productos/${entry.id}`}>{entry.album}</Link></td>
-                                        <td>$ {entry.precio}</td>
+                                        <td>${entry.precio}</td>
                                         <td>{entry.cantidad}</td>
-                                        <td>{entry.precio * entry.cantidad}</td>
+                                        <td>${entry.precio * entry.cantidad}</td>
                                         <td><Button variant="danger" id="eliminar" onClick={() => eliminarDelCarrito(entry)}>Eliminar</Button></td>
                                     </tr>
                                 </tbody>

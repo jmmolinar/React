@@ -10,13 +10,15 @@ import ItemDetailContainer from './ItemDetailContainer'
 
 //FUNCION PARA MOSTRAR EL LISTADO DE PRODUCTOS
 const Item = ({ atributo }) => {
-  // if (!atributo) {
-  //   return <p>Cargando...</p>;
-  // }
+
   const list = atributo.map((elemento) => {
+    console.log("Imprimiendo elementos del Item")
+    console.log(elemento);
     return <div key={elemento.id}>
       <Link to={`/productos/${elemento.id}`}><div><img src={elemento.caratula} alt={elemento.banda} /></div></Link>
+      <div><strong>Categoría:</strong> {elemento.categoriaID}</div>
       <div> Album: {elemento.album} - Valor: <strong>${elemento.precio}</strong></div>
+      <hr />
       <div></div>
     </div>
   })
@@ -24,3 +26,7 @@ const Item = ({ atributo }) => {
 }
 
 export default Item;
+
+// if (!atributo) {
+//   return <p>Cargando...</p>;
+// }

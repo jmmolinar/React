@@ -1,14 +1,17 @@
 /* 
 
     CURSO: React
-    Desafio N° 6 y 7 de las Clases 7 y 8
-    Estudiante: José Miguel Molina Rondón 
+    Desafio N° 11 Clase 12 Firebase
+    Estudiante: José Miguel Molina Rondón
+
+    Traigo los productos por context con productosFirebase y se filta por el useParams
 
 */
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail'
+import useCartContext from '../context/useCartContext';
 //import './App.css';
 
 const ItemDetailContainer = () => {
@@ -18,29 +21,13 @@ const ItemDetailContainer = () => {
     let { productoId } = useParams();
     console.log("Producto ID de la URL " + productoId)
 
+    const { productosFirebase } = useCartContext()
+
     useEffect(() => {
         setCargando(true)
         setTimeout(() => {
-            // Utilizo mi json generado en typicode
-            const url = 'https://my-json-server.typicode.com/jmmolinar/json/discografia';
-
-            // fetch("https://my-json-server.typicode.com/jmmolinar/json/discografia")
-            fetch(url)
-                .then((response) => {
-                    console.log(response);
-                    return response.json();
-                })
-                .then((response) => {
-                    console.log("Response del 2do then: " + response)
-                    console.log("Este es el query: " + productoId);
-
-                    // SOLUCIÓN 2: SELECCIÓN DEL PRODUCTO CON FIND
-                    setProducto(response.find((p) => p.id == productoId))
-
-                    setCargando(false)
-
-
-                });
+            setProducto(productosFirebase.find((p) => p.id == productoId))
+            setCargando(false);
         }, 3000);
         return () => { };
     }, [productoId]);
@@ -78,3 +65,28 @@ export default ItemDetailContainer;
 //     }
 
 // }
+
+
+
+
+    // useEffect(() => {
+    //     setCargando(true)
+    //     setTimeout(() => {
+    //         // Utilizo mi json generado en typicode
+    //         const url = 'https://my-json-server.typicode.com/jmmolinar/json/discografia';
+    //         fetch(url)
+    //             .then((response) => {
+    //                 console.log(response);
+    //                 return response.json();
+    //             })
+    //             .then((response) => {
+    //                 console.log("Response del 2do then: " + response)
+    //                 console.log("Este es el query: " + productoId);
+
+    //                 // SOLUCIÓN 2: SELECCIÓN DEL PRODUCTO CON FIND
+    //                 setProducto(response.find((p) => p.id == productoId))
+    //                 setCargando(false)
+    //             });
+    //     }, 3000);
+    //     return () => { };
+    // }, [productoId]);
