@@ -7,8 +7,9 @@
 */
 
 import React from 'react';
-import './container.css';
-import brusa from './images/brusa.png';
+//import './container.css';
+import '../css/container.css';
+import brusa from '../images/brusa.png';
 
 const Container = ({ children }) => {
     return (

@@ -1,16 +1,21 @@
 /* 
-
     CURSO: React
-    Estudiante: José Miguel Molina Rondón 
+    Estudiante: José Miguel Molina Rondón
 
-    DESAFIO 10 - Renderizado condicional tomando datos del useCartContext para el Carts.js
-    PRINCIPALES COMPONENTES DEL DESAFIO: useCartContext.js Carts.js
+    DESAFIO 12 - FIREBASE - ITEM COLLECTION II - CREACION DE COLECCIÓN VENTAS
+    PRINCIPALES COMPONENTES DEL DESAFIO: Carts.js, useCartContext.js
 
-    En Carts.js agrego un componente llamado Agrupados que recibe la cantidad de productos en el carrito
-    Se lo paso tomandolo del context a sumarCantidadesAlCarrito
-    Si la cantidad es mayor a cero, muestra los productos agregado
-    Si no lo es renderiza un mensaje "No tienes productos agregados" y agrega Link to para ir a Productos
+    En el Carts.js agrego el botón comprar
+    Al hacer clic en él invoco a nuevaCompra
+    En nuevaCompra invoco a la función ventasFirebase que la tengo en useCartContext
+    En ventasFirebase creo la colección en Firebase
+    Y se llena con los datos del buyer: nombre, contacto, email
+    Agrega los items del carrito
+    Agrega la fecha de la compra
+    Calcula el total final de toda la venta y lo agrega
+    Muestra el Alert con el ID del Documento de la colección ventas de firebase
 
+    -------------------------------------------
 
     DESAFIO 11 - FIREBASE Item Collection
     PRINCIPALES COMPONENTES DEL DESAFIO:
@@ -22,6 +27,16 @@
     CategoryList.js - renderizo las categorias de Category.js en botones para acceder a cada una
     CategoryContainer.js - router a /categorias/:categoriaId tomando categoriaId de Category.js y pasandolo como useParams
     En CategoryContainer.js también utilizo productosFirebaseCategoria, getProductosCategoria del contexto
+
+    -------------------------------------------
+
+    DESAFIO 10 - Renderizado condicional tomando datos del useCartContext para el Carts.js
+    PRINCIPALES COMPONENTES DEL DESAFIO: useCartContext.js Carts.js
+
+    En Carts.js agrego un componente llamado Agrupados que recibe la cantidad de productos en el carrito
+    Se lo paso tomandolo del context a sumarCantidadesAlCarrito
+    Si la cantidad es mayor a cero, muestra los productos agregado
+    Si no lo es renderiza un mensaje "No tienes productos agregados" y agrega Link to para ir a Productos
     
 
 */

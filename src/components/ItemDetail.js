@@ -37,7 +37,7 @@ const ItemDetail = ({ productoSeleccionado }) => {
     return (<>
         <div>
             <div>
-                <h1>Producto: {productoSeleccionado.id}</h1>
+                <div><h2>Producto: </h2><p>{productoSeleccionado.id}</p></div>
                 <img src={productoSeleccionado.caratula} alt={productoSeleccionado.banda} />
                 <div><strong>Album: </strong>{productoSeleccionado.album}</div>
                 <div><strong>Valor: ${productoSeleccionado.precio}</strong></div>

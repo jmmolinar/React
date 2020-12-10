@@ -1,12 +1,12 @@
 /* 
 
     CURSO: React
-    Desafio N° 10 Renderizado condicional tomando datos del useCartContext
+    Desafio N° 12 Firebase II
     Estudiante: José Miguel Molina Rondón
 
-    Se agrega componente Agrupados que toma la cantidad de productos en carrito para saber si renderiza el listado o un mensaje
-    Se lo paso tomándolo del context a sumarCantidadesAlCarrito
-    Y se agrega Botón con Link To para ir a productos
+    En el Carrito agrego el botón comprar
+    Al hacer clic en él invoco a nuevaCompra
+    En nuevaCompra invoco a la función ventasFirebase que la tengo en useCartContext
 
 */
 
@@ -18,7 +18,7 @@ import useCartContext from '../context/useCartContext';
 
 const Carts = () => {
 
-    const { productosCarrito, eliminarProducto, sumarCantidadesAlCarrito } = useCartContext()
+    const { productosCarrito, eliminarProducto, sumarCantidadesAlCarrito, ventasFirebase } = useCartContext()
     console.log("Cantidades productos Cart.js: ")
     console.log(sumarCantidadesAlCarrito());
 
@@ -27,6 +27,12 @@ const Carts = () => {
 
         const eliminarDelCarrito = (p) => {
             eliminarProducto(p.id)
+        }
+
+        //Con el onclic en botón compra llamo a nuevaCompra
+        //Allí invoco a Ventas() que está en el useCartContext
+        const nuevaCompra = () => {
+            ventasFirebase()
         }
 
         const tableStyle = {
@@ -70,7 +76,7 @@ const Carts = () => {
                         <hr />
                     </div>
                     <div>
-                        <Link to={'/productos'}><Button id="masProductos">Productos</Button></Link> <Button id="comprar">Comprar</Button>
+                        <Link to={'/productos'}><Button id="masProductos">Productos</Button></Link> <Button onClick={nuevaCompra} id="comprar">Comprar</Button>
                     </div>
                 </div>
             </>
