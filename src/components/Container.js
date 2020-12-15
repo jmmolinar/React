@@ -23,7 +23,7 @@ const Container = ({ children }) => {
                 {children}
             </div>
             <div className="footer">
-                <p>Desafio 11 | React</p>
+                <p>Desafio 12 | React</p>
             </div>
         </div>
     )
