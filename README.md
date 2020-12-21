@@ -1,4 +1,4 @@
-# Brusa Music  
+# Brusa Music
 
 Curso: React CODERHOUSE
 Camada: 11305
@@ -7,11 +7,11 @@ Estudiante: José Miguel Molina
 
 ## Descripción
 
-En mi app se venden discos de rock para decadas pasadas
-El proyecto se encuentra en mi repositorio [React](https://github.com/jmmolinar/react).
-Los productos se toman desde Firebase [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore)
-Allí en [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore) también se registran las ventas
-Las imágenes de los productos se encuentran en repositorio [Images](https://github.com/jmmolinar/album/tree/main/images) desde donde se toman en un atributo de cada producto en el Firebase
+- En mi app se venden discos de rock para decadas pasadas
+- El proyecto se encuentra en mi repositorio [React](https://github.com/jmmolinar/react).
+- Los productos se toman desde Firebase [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore)
+- Allí en [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore) también se registran las ventas
+- Las imágenes de los productos se encuentran en repositorio [Images](https://github.com/jmmolinar/album/tree/main/images) desde donde se toman en un atributo de cada producto en el Firebase
 
 ## Componentes
 
@@ -41,9 +41,9 @@ Las imágenes de los productos se encuentran en repositorio [Images](https://git
 
 ### `App.js`
 
-App.js contiene el AppProvider del context y el router con la configuración de URLs utilizadas por los componentes
-El estilo es otorgado con Bootstrap y el archivo de la carpeta css llamado container.css
-En la carpeta images solo se tiene un png para mostrarlo en la parte superior de la app
+- App.js contiene el AppProvider del context y el router con la configuración de URLs utilizadas por los componentes
+- El estilo es otorgado con Bootstrap y el archivo de la carpeta css llamado container.css
+- En la carpeta images solo se tiene un png para mostrarlo en la parte superior de la app
 
 ### `Componente Carts.js`
 
@@ -150,4 +150,4 @@ Subcomponente: Agrupados
 
 ### `Firebase index.js`
 
-Se tienen el códog para la conexión a las colecciones en firebase
+- Se tienen el código para la conexión a las colecciones en firebase
