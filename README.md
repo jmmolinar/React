@@ -1,7 +1,8 @@
-# App Brusa Music para Entrega Final
+# Brusa Music  
 
 Curso: React CODERHOUSE
 Camada: 11305
+Entrega Final
 Estudiante: José Miguel Molina
 
 ## Descripción
@@ -35,10 +36,6 @@ Las imágenes de los productos se encuentran en repositorio [Images](https://git
 ## Firebase
 
 - index.js (conexión a las colecciones en firebase)
-
-El estilo es otorgado con Bootstrap y el archivo de la carpeta css llamado container.css
-En la carpeta images solo se tiene un png para mostrarlo en la parte superior de la app
-Las demás imágenes se encuentran en un atributo de cada producto del firebase y se llaman por url a respositorio git
 
 ## Detalle de APP, Componentes, Context y Firebase
 
