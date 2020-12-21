@@ -1,17 +1,17 @@
 # Brusa Music
 
-Curso: React CODERHOUSE
-Camada: 11305
-Entrega Final
+Curso: React CODERHOUSE  
+Camada: 11305  
+Entrega Final  
 Estudiante: José Miguel Molina
 
 ## Descripción
 
-- En mi app se venden discos de rock para decadas pasadas
-- El proyecto se encuentra en mi repositorio [React](https://github.com/jmmolinar/react).
-- Los productos se toman desde Firebase [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore)
-- Allí en [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore) también se registran las ventas
-- Las imágenes de los productos se encuentran en repositorio [Images](https://github.com/jmmolinar/album/tree/main/images) desde donde se toman en un atributo de cada producto en el Firebase
+En mi app se venden discos de rock para decadas pasadas  
+El proyecto se encuentra en mi repositorio [React](https://github.com/jmmolinar/react)  
+Los productos se toman desde Firebase [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore)  
+Allí en [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore) también se registran las ventas  
+Las imágenes de los productos se encuentran en repositorio [Images](https://github.com/jmmolinar/album/tree/main/images) desde donde se toman en un atributo de cada producto en el Firebase
 
 ## Componentes
 
