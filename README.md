@@ -1,70 +1,156 @@
-# Getting Started with Create React App
+# App Brusa Music para Entrega Final
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Curso: React CODERHOUSE
+Camada: 11305
+Estudiante: José Miguel Molina
 
-## Available Scripts
+## Descripción
 
-In the project directory, you can run:
+En mi app se venden discos de rock para decadas pasadas
+El proyecto se encuentra en mi repositorio [React](https://github.com/jmmolinar/react).
+Los productos se toman desde Firebase [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore)
+Allí en [Coder Ecommerce 1f345](https://console.firebase.google.com/project/coder-ecommerce-1f345/firestore) también se registran las ventas
+Las imágenes de los productos se encuentran en repositorio [Images](https://github.com/jmmolinar/album/tree/main/images) desde donde se toman en un atributo de cada producto en el Firebase
 
-### `npm start`
+## Componentes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- CartIcon.js
+- Carts.js
+- Category.js
+- CategoryContainer.js
+- CategoryList.js
+- Container.js
+- Home.js
+- Item.js
+- ItemCount.js
+- ItemDetail.js
+- ItemDetailContainer.js
+- ItemList.js
+- NavBar.js
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Context
+    
+- useCartContext.js
 
-### `npm test`
+## Firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- index.js (conexión a las colecciones en firebase)
 
-### `npm run build`
+El estilo es otorgado con Bootstrap y el archivo de la carpeta css llamado container.css
+En la carpeta images solo se tiene un png para mostrarlo en la parte superior de la app
+Las demás imágenes se encuentran en un atributo de cada producto del firebase y se llaman por url a respositorio git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Detalle de APP, Componentes, Context y Firebase
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `App.js`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+App.js contiene el AppProvider del context y el router con la configuración de URLs utilizadas por los componentes
+El estilo es otorgado con Bootstrap y el archivo de la carpeta css llamado container.css
+En la carpeta images solo se tiene un png para mostrarlo en la parte superior de la app
 
-### `npm run eject`
+### `Componente Carts.js`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Subcomponente: Agrupados
+    
+- En el Carrito agrego el botón comprar
+- Al hacer clic en él invoco a nuevaCompra
+- En la función nuevaCompra invoco a las funciones de validaciones de los input
+- Se validan: nombre, apellido, dirección, formato email y coincidencias, formato teléfono
+- Luego invoco a ventasFirebase que la tengo en useCartContext
+- ventasFirebase se encarga de crear la colección ventas en Firebase y agregar las compras
+- Luego de hacer la compra exitosa consulta si quiere mantener los productos en el carrito o vaciarlo
+- Se tienen funciones para eliminar por elemento del carrito y para vaciar el carrito
+- Tengo un Subcomponente llamado Agrupados
+- Agrupados utiliza sumarCantidadesAlCarrito traida del useCartContext
+- Muestra los productos en una tabla
+- Si no hay elementos agregados renderiza mensaje para ir a seleccionar en categorias o en productos elementos nuevos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `Componente Category.js`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Muestra el listado de categorías al ingresar al menu Categorías
+- Es dinámico, se redenrizan las categorías (sin repetirlas) encontradas en todos los productos
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `Componente CategoryContainer.js`
 
-## Learn More
+- Contenedor de productos pertenecientes a una categoría específica
+- Con el useParams obtengo de la url la categoriaID para filtrar
+- La función mostrarDeLaCategoria usa categoriaID y se pasa a getProductosCategoria del useCartContext
+- En getProductosCategoria del useCartContext se filtran los productos que tengan esa categoriaID
+- Paso al componente Item, los productos específicos de una categoría
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `Componente CategoryList.js`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Utiliza el arregloCategorias traido desde el useCartContext
+- En ese arreglo tengo las categorías encontradas en los productos
+- Se eliminan las categorías repetidas en el useCartContext para no listarlas de forma duplicada
+- Paso al componente Category dichas categorías para que las muestre en el DOM
 
-### Code Splitting
+### `Componente Container.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Contenedor de toda la App
+- Tiene logo superior
+- El resto de los componentes
+- Pie de página
 
-### Analyzing the Bundle Size
+### `Componente Home.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Componente de Inicio con mensaje de bienvenida
 
-### Making a Progressive Web App
+### `Componente Item.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+-  Se muestra el listado de productos
 
-### Advanced Configuration
+### `Componente ItemCount.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Se agregan las funciones para sumar y restar que toma el onAdd y le pasa el parámetro contador
+- Con los botones - y + cambio el valor del contador entre min y max desde initial
 
-### Deployment
+### `Componente ItemDetail.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Se muestra el producto seleccionado con todos sus detalles
+- Se utiliza el componente ItemCount para sumar o restar la cantidad del producto a comprar
+- El botón Agregar al carrito muestra el valor que se va sumando o restando
+- Al hacer clic en Agregar al carrito se actualiza la cantidad en el CartIcon
+- El botón Comprar muestra el valor que se va sumando o restando
+- Al hacer clic en Comprar se actualiza la cantidad en el CartIcon y hace link to al Carrito
+- La función agregarAlCarrito es usada por ambos botones
+- La función agregarAlCarrito utiliza asignarProducto del useCartContext
+- asignarProducto del useCartContext verifica si el producto ya está agregado
+- Si ya está agregado solo actualiza la nueva cantidad solicitada
+- Si no ha sido agregado lo suma al carrito junto con su cantidad
 
-### `npm run build` fails to minify
+### `Componente ItemDetailContainer.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Traigo los productos por context con productosFirebase y se filtra por el useParams
+- Con el useParams obtengo el productoID que será asignado a ItemDetail
+
+
+### `Componente ItemList.js`
+
+- Traigo los productos por context con productosFirebase
+- Se pasan los productos al componente Item para ser renderizados
+
+### `Componente NavBar.js`
+
+- Se tiene el menú con las opciones de la app
+
+### `Context useCartContext.js`
+
+- Se obtienen los productos de firebase
+- Función ventasFirebase crea la colección en firebase y registra las ventas
+- Muestra alert con el ID del documentos de firebas y demás datos de la compra y del comprador
+- Luego de la compra exitosa consulta si quiere mantener los productos en el carrito o vaciarlo
+- Los documentos de las ventas contienen: nombre, contacto, email, fechas, productos con sus cantidades, cantidad total y precio final
+- Función getProductosCategoria obtiene los productos filtrados por categoría
+- Función eliminarTodosProductos se usa para vaciar el carrito
+- Función eliminarProducto se utiliza para eliminar uno específico del carrito
+- Función asignarProducto agrega productos al carrito y los verifica para no tenerlos duplicados
+- En caso de ya estar en el carrito le actualiza la cantidad junto con la nueva asignada
+- Función agragarCategoriaArreglo llena un arreglo de categorias que utilizo para listarlas en la opción Categorías del menu de la app
+- Las categorías se crean de forma dinámica pues se buscan en todos los productos y se crea un arreglo con éstas sin estar duplicadas
+- Función sumarCantidadesAlCarrito actualiza las cantidades de productos agregados para mostrarlas en el CartIcon
+- Este dato también lo utiliza Carts para renderizar productos si existen y si no indicar al cliente que los agregue
+
+### `Firebase index.js`
+
+Se tienen el códog para la conexión a las colecciones en firebase
