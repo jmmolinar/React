@@ -45,6 +45,10 @@ Las imágenes de los productos se encuentran en repositorio [Images](https://git
 - El estilo es otorgado con Bootstrap y el archivo de la carpeta css llamado container.css
 - En la carpeta images solo se tiene un png para mostrarlo en la parte superior de la app
 
+### `Componente CartIcon.js`
+
+- Muestra la cantidad tomando del context useCartContext a sumarCantidadesAlCarrito
+
 ### `Componente Carts.js`
 
 Subcomponente: Agrupados
