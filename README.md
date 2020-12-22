@@ -1,10 +1,10 @@
 # Brusa Music
 
 Curso: React CODERHOUSE  
-Camada: 11305  
 Entrega Final  
+Camada: 11305  
 Estudiante: José Miguel Molina  
-[Brusa Music](https://coder-ecommerce-1f345.web.app/)
+Hosting:[Brusa Music](https://coder-ecommerce-1f345.web.app/)
 
 ## Descripción
 
