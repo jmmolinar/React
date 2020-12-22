@@ -156,8 +156,4 @@ Subcomponente: Agrupados
 
 ### `Firebase index.js`
 
-<<<<<<< HEAD
 - Se tienen el código para la conexión a las colecciones en firebase
-=======
-- Se tienen el código para la conexión a las colecciones en firebase
->>>>>>> 34cb8505b5970459402657f66d849d4a34bbc318
