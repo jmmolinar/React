@@ -1,10 +1,11 @@
 /* 
 
     CURSO: React
-    Desafio N° 9 context
     Estudiante: José Miguel Molina Rondón
-
-    Muestro la cantidad tomando del context a sumarCantidadesAlCarrito
+    
+    Componente CartIcon
+    
+    - Muestra la cantidad tomando del context useCartContext a sumarCantidadesAlCarrito
 
 */
 
@@ -18,8 +19,7 @@ const CartIcon = () => {
 
     return (<>
 
-        {/* // Agrego el icono de carrito de compras
-        // previamente importado desde Bootstrap */}
+        {/* Agrego el icono de carrito de compras previamente importado desde Bootstrap */}
         <Icon.Cart color="royalblue" size={45} /><p>{sumarCantidadesAlCarrito()}</p>
     </>
     )

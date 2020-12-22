@@ -2,46 +2,17 @@
     CURSO: React
     Estudiante: José Miguel Molina Rondón
 
-    DESAFIO 12 - FIREBASE - ITEM COLLECTION II - CREACION DE COLECCIÓN VENTAS
-    PRINCIPALES COMPONENTES DEL DESAFIO: Carts.js, useCartContext.js
+    ENTREGA FINAL: En mi app se venden discos de rock para decadas anteriores
 
-    En el Carts.js agrego el botón comprar
-    Al hacer clic en él invoco a nuevaCompra
-    En nuevaCompra invoco a la función ventasFirebase que la tengo en useCartContext
-    En ventasFirebase creo la colección en Firebase
-    Y se llena con los datos del buyer: nombre, contacto, email
-    Agrega los items del carrito
-    Agrega la fecha de la compra
-    Calcula el total final de toda la venta y lo agrega
-    Muestra el Alert con el ID del Documento de la colección ventas de firebase
+    App.js contiene el AppProvider del context y el router con la configuración de URLs utilizadas por los componentes
+    El estilo es otorgado con Bootstrap y el archivo de la carpeta css llamado container.css
+    En la carpeta images solo se tiene un png para mostrarlo en la parte superior de la app
+    Las imágenes de los productos se toman en un atributo de cada producto en firebase referenciadas desde github
 
-    -------------------------------------------
-
-    DESAFIO 11 - FIREBASE Item Collection
-    PRINCIPALES COMPONENTES DEL DESAFIO:
-    
-    useCartContext.js - obtengo la colección de producto de Firebase
-    ItemList.js - productos por context con productosFirebase
-    ItemDetailContainer.js - filtro productosFirebase con el productoID de la URL
-    Creación de 3 nuevos componentes: CategoryList, Category, CategoryContainer
-    CategoryList.js - renderizo las categorias de Category.js en botones para acceder a cada una
-    CategoryContainer.js - router a /categorias/:categoriaId tomando categoriaId de Category.js y pasandolo como useParams
-    En CategoryContainer.js también utilizo productosFirebaseCategoria, getProductosCategoria del contexto
-
-    -------------------------------------------
-
-    DESAFIO 10 - Renderizado condicional tomando datos del useCartContext para el Carts.js
-    PRINCIPALES COMPONENTES DEL DESAFIO: useCartContext.js Carts.js
-
-    En Carts.js agrego un componente llamado Agrupados que recibe la cantidad de productos en el carrito
-    Se lo paso tomandolo del context a sumarCantidadesAlCarrito
-    Si la cantidad es mayor a cero, muestra los productos agregado
-    Si no lo es renderiza un mensaje "No tienes productos agregados" y agrega Link to para ir a Productos
-    
+    El detalle de toda la Aplicación se explica en README.md
 
 */
 
-// import logo from './logo.svg';
 import Container from './components/Container';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
@@ -58,14 +29,13 @@ import React, { useState, useEffect } from 'react';
 function App() {
 
   return (
-
     <AppProvider>
       <Container>
         <BrowserRouter>
           <NavBar />
           <Switch>
             <Route exact path="/">
-              <Home mensaje="¡Bienvenido a mi APP!" />
+              <Home mensaje="¡Bienvenido a Brusa music!" />
             </Route>
             <Route exact path="/productos">
               <ItemList />
@@ -86,26 +56,5 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-// <MiContexto.Provider value={[mostrar]}>
-
-// const [mostrar, setMostrar] = useState("Mi valor");
-
-// Desafio simple dentro de la clase 11
-// const Loader = ({ loading }) => {
-//   return <h2>{loading === true ? 'Loading...' : ''}</h2>
-// }
-// <Home mensaje="¡Bienvenido a mi APP!">
-//   Desafio simple dentro de la clase 11
-//   <Loader loading={false} />
-// </Home>
-
-
-
 
 

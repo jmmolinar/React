@@ -1,15 +1,17 @@
 /* 
 
     CURSO: React
-    Desafio N° 11 Clase 12 Firebase context
-    Estudiante: José Miguel Molina Rondón 
+    Estudiante: José Miguel Molina Rondón
+
+    Componente: Category
+
+    - Muestra el listado de categorías al ingresar al menu Categorías
+    - Es dinámico, se redenrizan las categorías (sin repetirlas) encontradas en todos los productos
 
 */
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import ItemDetailContainer from './ItemDetailContainer'
+import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 
-//FUNCION PARA MOSTRAR EL LISTADO DE PRODUCTOS
 const Category = ({ atributoCategoria }) => {
 
     const list = atributoCategoria.map((elemento, index) => {

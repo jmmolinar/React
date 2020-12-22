@@ -1,32 +1,34 @@
 /* 
 
     CURSO: React
-    Desafio N° 11 Clase 12 Firebase context
     Estudiante: José Miguel Molina Rondón
 
+    Componente: CategoryList
+
+    - Utiliza el arregloCategorias traida desde el useCartContext
+    - En ese arreglo tengo las categorías encontradas en los productos
+    - Se eliminan las categorías repetidas en el useCartContext para no listarlas de forma duplicada
+    - Paso al componente Category dichas categorías para que las muestre en el DOM
+    
 */
 
 import React, { useState, useEffect } from 'react';
 import Category from './Category'
 import useCartContext from '../context/useCartContext';
-//import './App.css';
 
 const ItemListCategory = () => {
     const [cargando, setCargando] = useState(true);
     const [categorias, setCategorias] = useState();
 
-    const { productosFirebase, arregloCategorias, agregarCategoriaArreglo } = useCartContext();
+    const { arregloCategorias} = useCartContext();
 
-    //PEDIDO DE DATOS AL INICIAR EL COMPONENTE
+    //Pedido de categorías al iniciar el componente
     useEffect(() => {
-        
         getCategorias();
-        //return () => {console.log(getProductos())}
     }, []);
 
-    //TRAYENDOME DEL CONTEXTO LOS DATOS DEL FIREBASE
+    //Obteniendo del contexto las categorías
     const getCategorias = () => {
-        //agregarCategoriaArreglo(productosFirebase);
         setTimeout(() => {
             console.log("Arreglo desde CategoryList")
             console.log(arregloCategorias)
@@ -39,7 +41,7 @@ const ItemListCategory = () => {
 
     return <>
         <div className="App">
-            <h1>Categorías Discografías</h1>
+            <h2>Categorías Discografías</h2>
 
             {cargando ? <h3>Cargando...</h3>
                 : <Category atributoCategoria={categorias} />
@@ -49,25 +51,3 @@ const ItemListCategory = () => {
 }
 
 export default ItemListCategory;
-
-
-
-
-
-//FUNCION PARA CONSULTAR LOS PRODUCTOS DESDE MI JSON
-// const getProductos = () => {
-
-//     setTimeout(() => {
-//         // Utilizo mi json generado en typicode
-//         const url = 'https://my-json-server.typicode.com/jmmolinar/json/discografia';
-//         fetch(url)
-//             .then((response) => {
-//                 return response.json();
-//             })
-//             .then((response) => {
-//                 setProductos(response);
-//                 setCargando(false);
-//             });
-//     }, 2000);
-//     return () => {};
-// }

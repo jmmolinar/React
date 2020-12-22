@@ -1,15 +1,20 @@
 /* 
 
     CURSO: React
-    Desafio N° 5 de la Clase 6
     Estudiante: José Miguel Molina Rondón 
+
+    Componente: Container
+
+    - Contenedor de toda la App
+    - Tiene logo superior
+    - El resto de los componentes
+    - Pie de página
 
 */
 
 import React from 'react';
-//import './container.css';
 import '../css/container.css';
-import brusa from '../images/brusa.png';
+import brusa from '../images/brusaMusic.png';
 
 const Container = ({ children }) => {
     return (
@@ -23,7 +28,7 @@ const Container = ({ children }) => {
                 {children}
             </div>
             <div className="footer">
-                <p>Desafio 12 | React</p>
+                <p>Entrega Final | React</p>
             </div>
         </div>
     )

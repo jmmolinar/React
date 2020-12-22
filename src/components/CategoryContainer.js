@@ -1,17 +1,22 @@
 /* 
 
     CURSO: React
-    Desafio N° 11 Clase 12 Firebase context
-    Estudiante: José Miguel Molina Rondón 
+    Estudiante: José Miguel Molina Rondón
+
+    Componente: CategoryContainer
+
+    - Contenedor de productos pertenecientes a una categoría específica
+    - Con el useParams obtengo de la url la categoriaID para filtrar
+    - La función mostrarDeLaCategoria usa categoriaID y se pasa a getProductosCategoria del useCartContext
+    - En getProductosCategoria del useCartContext se filtran los productos que tengan esa categoriaID
+    - Paso al componente Item, los productos específicos de una categoría
 
 */
-
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Item from './Item'
 import useCartContext from '../context/useCartContext';
-//import './App.css';
 
 const CategoryContainer = () => {
 
@@ -40,14 +45,13 @@ const CategoryContainer = () => {
         }, 3000);
         return () => { };
     }, []);
-    // }, [categoriaId]);
 
 
     return <>
         <div className="App">
-            <h1>Discografía - Categoría {categoriaId} </h1>
+            <h2>Discografía - Categoría {categoriaId} </h2>
 
-            {cargando ? <h3>Loading...</h3>
+            {cargando ? <h3>Cargando...</h3>
                 : <Item atributo={productosFirebaseCategoria} />
             }
         </div>
